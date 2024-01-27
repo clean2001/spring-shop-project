@@ -41,6 +41,7 @@ public class AccountService implements UserDetailsService {
         if(memberRepository.findByEmail(userEmail) != null) {
             return false;
         }
+        return true;
 
 
     }
