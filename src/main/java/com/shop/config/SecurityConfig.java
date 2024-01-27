@@ -37,7 +37,7 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/thymeleaf/ex07", "/members/login", "/memebers/new").permitAll()
+                        .requestMatchers("/", "/members/login", "/members/new").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form

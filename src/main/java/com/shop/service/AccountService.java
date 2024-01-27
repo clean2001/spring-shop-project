@@ -36,14 +36,14 @@ public class AccountService implements UserDetailsService {
     }
 
     @Transactional
-    public boolean join(String userName, String userEmail, String userPwd) {
-
+    public boolean join(Member member) {
+        String userEmail = member.getEmail();
         if(memberRepository.findByEmail(userEmail) != null) {
-            return false;
+            throw new IllegalStateException("이미 가입된 회원입니다.");
         }
+
+        memberRepository.save(member);
         return true;
-
-
     }
 
 }
